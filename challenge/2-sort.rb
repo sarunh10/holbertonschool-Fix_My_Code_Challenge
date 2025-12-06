@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
-# Take arguments (excluding the script name)
-args = ARGV.map { |a| a.to_i }
+# Keep only valid integer strings
+numbers = ARGV.select { |a| a.match?(/\A-?\d+\z/) }
+              .map(&:to_i)
 
 # Sort numerically
-sorted = args.sort
+sorted = numbers.sort
 
-# Print each element on a new line
+# Print each number
 sorted.each { |n| puts n }
-
